@@ -32,6 +32,12 @@ Open a browser and go to *localhost:10555*. You should see your reagent applicat
 
 Next, open `core.cljs`, edit the `"FIXME"` to your name, then save.  You should see your change automatically pushed to the browser, courtesy of figwheel.
 
+## other reagent templates
+
+[reagent-template](https://github.com/reagent-project/reagent-template) - Still in development, but will be the reagent-project organization's template.
+[liberagent](https://github.com/borkdude/lein-new-liberagent) - Template for apps that use Reagent on the client and Compojure+Liberator on the server.
+[reagent-seed](https://github.com/gadfly361/reagent-seed) - Reagent template with a few batteries include.
+
 ## credits
 
 This template is pared down version of [chestnut](https://github.com/plexus/chestnut) for reagent applications.

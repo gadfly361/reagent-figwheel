@@ -10,7 +10,7 @@ Create a new project based on the reagent-figwheel template.
 $ lein new reagent-figwheel <name of your app>
 ```
 
-cd into the folder you just made and start a repl
+cd into the folder you just made and start a repl.
 
 ```
 $ lein repl
@@ -31,3 +31,7 @@ Wait a little bit; your clojurescript file is getting compiled. Once you see *su
 Open a browser and go to *localhost:10555*. You should see your reagent application!
 
 Next, open `core.cljs`, edit the `"FIXME"` to your name, then save.  You should see your change automatically pushed to the browser, courtesy of figwheel.
+
+## credits
+
+This template is pared down version of [chestnut](https://github.com/plexus/chestnut) for reagent applications.

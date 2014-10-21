@@ -14,5 +14,4 @@
              ["dev/user.clj" (render "user.clj" data)]
              ["resources/public/css/style.css" (render "style.css")]
              ["resources/index.html" (render "index.html")]
-             ["README.md" (render "README.md")]             
              )))

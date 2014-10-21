@@ -34,7 +34,7 @@ Next, open `core.cljs`, edit the `"FIXME"` to your name, then save.  You should 
 
 ## other reagent templates
 
-[reagent-template](https://github.com/reagent-project/reagent-template) - Still in development, but will be the reagent-project organization's template.
+[reagent-template](https://github.com/reagent-project/reagent-template) - Template by the reagent-project organization.
 [liberagent](https://github.com/borkdude/lein-new-liberagent) - Template for apps that use Reagent on the client and Compojure+Liberator on the server.
 [reagent-seed](https://github.com/gadfly361/reagent-seed) - Reagent template with a few batteries included.
 

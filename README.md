@@ -40,4 +40,4 @@ Next, open `core.cljs`, edit the `"FIXME"` to your name, then save.  You should 
 
 ## credits
 
-This template is pared down version of [chestnut](https://github.com/plexus/chestnut) for reagent applications.
+This template is a pared down version of [chestnut](https://github.com/plexus/chestnut) for reagent applications.

@@ -1,0 +1,8 @@
+(defproject reagent-figwheel/lein-template "0.1.0"
+  :description "Starter template for react/reagent applications with figwheel"
+  :url "https://github.com/gadfly361/reagent-seed"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+ :scm {:name "git"
+         :url "https://github.com/gadfly361/reagent-seed"}
+  :eval-in-leiningen true)

@@ -1,7 +1,5 @@
 (ns user
-  (:require [cemerick.piggieback :as piggieback]
-            [weasel.repl.websocket :as weasel]
-            [leiningen.core.main :as lein]
+  (:require [leiningen.core.main :as lein]
             [clojure.java.io :as io]
             [compojure.core :refer [GET defroutes]]
             [compojure.route :refer [resources]]
@@ -16,11 +14,6 @@
 
 (def http-handler (reload/wrap-reload (api #'routes)))
 
-(defn start-figwheel []
-  (future
-    (print "Starting figwheel.\n")
-    (lein/-main ["figwheel"])))
-
 (defn run [& [port]]
   (defonce ^:private server
     (let [port (Integer. (or port (env :port) 10555))]
@@ -28,6 +21,11 @@
       (run-jetty http-handler {:port port
                                :join? false})))
   server)
+
+(defn start-figwheel []
+  (future
+    (print "Starting figwheel.\n")
+    (lein/-main ["figwheel"])))
 
 (defn -main [& [port]]
   (run port))

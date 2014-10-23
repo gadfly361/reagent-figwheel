@@ -1,7 +1,6 @@
 (ns cljs.user
   (:require [{{ns-name}}.core :as core]
-            [figwheel.client :as figwheel :include-macros true]
-            [weasel.repl :as weasel]))
+            [figwheel.client :as figwheel :include-macros true]))
 
 (enable-console-print!)
 

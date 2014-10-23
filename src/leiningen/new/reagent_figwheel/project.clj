@@ -13,14 +13,10 @@
                  [compojure "1.2.0"]
                  [figwheel "0.1.4-SNAPSHOT"]
                  [environ "1.0.0"]
-                 [com.cemerick/piggieback "0.1.3"]
-                 [weasel "0.4.0-SNAPSHOT"]
                  [leiningen "2.5.0"]
                  [reagent "0.4.2"]]
 
   :min-lein-version "2.5.0"
-
-  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
 
   :plugins [[cider/cider-nrepl "0.8.0-SNAPSHOT"]
             [lein-cljsbuild "1.0.3"]
@@ -28,8 +24,7 @@
             [lein-figwheel "0.1.4-SNAPSHOT"]]
 
   :figwheel {:http-server-root "public"
-             :port 3449
-             :css-dirs ["resources/public/css"]}
+             :port 3449}
 
   :cljsbuild {:builds {:app {:source-paths ["src" "dev"]
                              :compiler {:output-to "resources/public/js/app.js"

@@ -4,10 +4,7 @@
 (defonce app-state (atom {:text "Hello, what is your name? "}))
 
 (defn page []
-  [:div
-   (@app-state :text)
-   "FIXME"])
+  [:div (@app-state :text) "FIXME"])
 
 (defn main []
-  (reagent/render-component [page]
-                            (.getElementById js/document "app")))
+  (reagent/render-component [page] (.getElementById js/document "app")))

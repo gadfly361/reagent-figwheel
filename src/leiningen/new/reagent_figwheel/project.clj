@@ -16,27 +16,24 @@
                  [com.cemerick/piggieback "0.1.3"]
                  [weasel "0.4.0-SNAPSHOT"]
                  [leiningen "2.5.0"]
-                 [reagent "0.4.2"]
-                 ]
+                 [reagent "0.4.2"]]
 
   :min-lein-version "2.5.0"
 
-  :profiles {:dev {:repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
 
-                   :env {:is-dev true}
+  :plugins [[cider/cider-nrepl "0.8.0-SNAPSHOT"]
+            [lein-cljsbuild "1.0.3"]
+            [lein-environ "1.0.0"]
+            [lein-figwheel "0.1.4-SNAPSHOT"]]
 
-                   :plugins [[cider/cider-nrepl "0.8.0-SNAPSHOT"]
-                             [lein-cljsbuild "1.0.3"]
-                             [lein-environ "1.0.0"]
-                             [lein-figwheel "0.1.4-SNAPSHOT"]]
+  :figwheel {:http-server-root "public"
+             :port 3449
+             :css-dirs ["resources/public/css"]}
 
-                   :figwheel {:http-server-root "public"
-                              :port 3449
-                              :css-dirs ["resources/public/css"]}
-
-                   :cljsbuild {:builds {:app {:source-paths ["src" "dev"]
-                                              :compiler {:output-to "resources/public/js/app.js"
-                                                         :output-dir "resources/public/js/out"
-                                                         :source-map    "resources/public/js/out.js.map"
-                                                         :optimizations :none}}}}}}
+  :cljsbuild {:builds {:app {:source-paths ["src" "dev"]
+                             :compiler {:output-to "resources/public/js/app.js"
+                                        :output-dir "resources/public/js/out"
+                                        :source-map    "resources/public/js/out.js.map"
+                                        :optimizations :none}}}}
   )

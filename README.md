@@ -10,27 +10,33 @@ Create a new project based on the reagent-figwheel template.
 $ lein new reagent-figwheel <name of your app>
 ```
 
-cd into the folder you just made and start a repl.
+cd into the folder you just made. Create a javascript file from your clojurescript files.
+
+```
+$ lein cljsbuild once
+```
+
+Start a repl.
 
 ```
 $ lein repl
 ```
 
-Then type the following to start your application.
+Start your application.
 
 ```
 (run)
 ```
 
-Wait a little bit; your clojurescript file is getting compiled. Once you see *success*, you can hit enter and type the following.
-
-```
-(browser-repl)
-```
-
 Open a browser and go to *localhost:10555*. You should see your reagent application!
 
-Next, open `core.cljs`, edit the `"FIXME"` to your name, then save.  You should see your change automatically pushed to the browser, courtesy of figwheel.
+Now, start figwheel.
+
+```
+(start-figwheel)
+```
+
+Finally, open `core.cljs`, change `"FIXME"` to your name, then save.  You should see your change automatically pushed to the browser, courtesy of figwheel.
 
 ## other reagent templates
 

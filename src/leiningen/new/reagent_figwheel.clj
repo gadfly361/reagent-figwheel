@@ -12,6 +12,5 @@
              ["src/{{sanitized}}/core.cljs" (render "core.cljs" data)]
              ["dev/user.cljs" (render "user.cljs" data)]
              ["dev/user.clj" (render "user.clj" data)]
-             ["resources/public/css/style.css" (render "style.css")]
              ["resources/index.html" (render "index.html")]
              )))

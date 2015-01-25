@@ -37,11 +37,3 @@ Now, start figwheel.
 ```
 
 Finally, open `core.cljs`, change `"FIXME"` to your name, then save.  You should see your change automatically pushed to the browser, courtesy of figwheel.
-
-## other reagent templates
-
-[reagent-template](https://github.com/reagent-project/reagent-template) - Remake of [chestnut](https://github.com/plexus/chestnut) template for reagent.
-
-[liberagent](https://github.com/borkdude/lein-new-liberagent) - Template for apps that use Reagent on the client and Compojure+Liberator on the server.
-
-[reagent-seed](https://github.com/gadfly361/reagent-seed) - Reagent template with a few batteries included.

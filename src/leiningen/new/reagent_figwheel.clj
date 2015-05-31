@@ -8,9 +8,10 @@
   (let [data {:name name
               :ns-name (sanitize-ns name)
               :sanitized (name-to-path name)}]
-    (->files data ["project.clj" (render "project.clj" data)]
-             ["src/{{sanitized}}/core.cljs" (render "core.cljs" data)]
-             ["dev/user.cljs" (render "user.cljs" data)]
-             ["dev/user.clj" (render "user.clj" data)]
-             ["resources/index.html" (render "index.html")]
+    (->files data 
+             ["project.clj" (render "project.clj" data)]
+             ["resources/public/index.html" (render "resources/public/index.html" data)]
+             ["src/cljs/{{sanitized}}/core.cljs" (render "src/cljs/core.cljs" data)]
+             ["src/clj/{{sanitized}}/core.cljs" (render "src/clj/core.cljs" data)]
+             ["README.md" (render "README.md" data)]
              )))

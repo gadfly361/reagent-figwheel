@@ -2,38 +2,26 @@
 
 This is a simple starter template for [reagent](https://github.com/holmsand/reagent) applications with [figwheel](https://github.com/bhauman/lein-figwheel).
 
-## usage
-
-Create a new project based on the reagent-figwheel template.
+## Usage
 
 ```
-$ lein new reagent-figwheel <name of your app>
+lein new reagent-figwheel <project_name>
 ```
 
-cd into the folder you just made. Create a javascript file from your clojurescript files.
+## Development Mode
 
 ```
-$ lein cljsbuild once
+lein clean
+lein figwheel
 ```
 
-Start a repl.
+Figwheel will automatically push cljs changes to the browser.
+
+Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
+
+## Production Build
 
 ```
-$ lein repl
+lein clean
+lein cljsbuild once min
 ```
-
-Start your application.
-
-```
-(run)
-```
-
-Open a browser and go to *localhost:10555*. You should see your reagent application!
-
-Now, start figwheel.
-
-```
-(start-figwheel)
-```
-
-Finally, open `core.cljs`, change `"FIXME"` to your name, then save.  You should see your change automatically pushed to the browser, courtesy of figwheel.

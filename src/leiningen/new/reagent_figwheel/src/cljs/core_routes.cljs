@@ -41,13 +41,10 @@
   [:div [:h1 "About Page"]
    [:a {:href "#/"} "home page"]])
 
-(defmulti current-page identity)
-(defmethod current-page :home [] [home])
-(defmethod current-page :about [] [about])
-(defmethod current-page :default [] [:div ])
-
-(defn page []
-  [current-page (@app-state :page)])
+(defmulti page #(@app-state :page))
+(defmethod page :home [] [home])
+(defmethod page :about [] [about])
+(defmethod page :default [] [:div ])
 
 ;; ------------------------------
 ;; initialize app

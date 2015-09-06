@@ -1,6 +1,6 @@
 (defproject {{ns-name}} "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-3211"]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.122"]
                  [reagent "0.5.0"]{{#routes?}}
                  [secretary "1.2.3"]{{/routes?}}{{#garden?}}
                  [garden "1.2.5"]{{/garden?}}]
@@ -8,7 +8,7 @@
   :source-paths ["src/clj"]
 
   :plugins [[lein-cljsbuild "1.0.6"]
-            [lein-figwheel "0.3.3" :exclusions [cider/cider-nrepl]] {{#garden?}}
+            [lein-figwheel "0.3.9" :exclusions [cider/cider-nrepl]] {{#garden?}}
             [lein-garden "0.2.6"]{{/garden?}} ]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target" {{#test?}}

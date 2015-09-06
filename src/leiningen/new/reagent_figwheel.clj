@@ -8,15 +8,16 @@
 
 (defn app-files [data options]
   (let [garden? (helpers/option? garden/option options)
-        routes? (helpers/option? routes/option options)
+        ;; routes? (helpers/option? routes/option options)
         test? (helpers/option? test/option options)]
 
     (concat
      (base/files data)
 
-     (if routes? 
-       (routes/core-cljs data)
-       (base/core-cljs data))
+     ;;(if routes? 
+     ;; (routes/core-cljs data)
+     (base/core-cljs data)
+     ;;)
 
      (when garden? (garden/files data))
      (when test? (test/files data)) )))
@@ -28,7 +29,7 @@
    :sanitized-name (sanitize name)
 
    :garden? (helpers/invoke-option garden/option options)
-   :routes? (helpers/invoke-option routes/option options)
+   ;; :routes? (helpers/invoke-option routes/option options)
    :test? (helpers/invoke-option test/option options)})
 
 (defn reagent-figwheel [name & options]

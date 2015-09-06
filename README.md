@@ -20,7 +20,6 @@ lein new reagent-figwheel <project_name>
 The optional profiles include:
 
 * [garden](https://github.com/noprompt/garden) (`+garden`)
-* [secretary](https://github.com/gf3/secretary) (`+routes`)
 * [cljs.test](https://groups.google.com/forum/#!topic/clojure/gnCl0CySSk8) (`+test`)
 
 To add a profile to the base template, just append the profile name (let's use `+garden` as an example):
@@ -32,7 +31,7 @@ lein new reagent-figwheel <project-name> +garden
 Any combination of profiles can be added at once (let's add all the profiles as an example):
 
 ```
-lein new reagent-figwheel <project-name> +garden +routes +test
+lein new reagent-figwheel <project-name> +garden +test
 ```
 
 ## Development Mode

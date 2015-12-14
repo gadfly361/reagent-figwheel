@@ -13,19 +13,11 @@ google-chrome index.html
 cd ../../..
 
 
-echo creating base +routes
-lein new reagent-figwheel base-routes +routes
-cd base-routes
-lein cljsbuild once min
-cd resources/public
-google-chrome index.html
-cd ../../..
-
 echo creating base +test
 lein new reagent-figwheel base-test +test
 cd base-test
 lein cljsbuild once min
-lein cljsbuild once test
+lein doo phantom test once
 cd resources/public
 google-chrome index.html
 cd ../../..
@@ -40,12 +32,12 @@ google-chrome index.html
 cd ../../..
 
 
-echo creating base +routes +test +garden
-lein new reagent-figwheel everything +routes +test +garden
+echo creating base +test +garden
+lein new reagent-figwheel everything +test +garden
 cd everything
 lein garden once
 lein cljsbuild once min
-lein cljsbuild once test
+lein doo phantom test once
 cd resources/public
 google-chrome index.html
 cd ../../..

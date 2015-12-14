@@ -20,7 +20,7 @@ lein new reagent-figwheel <project_name>
 The optional profiles include:
 
 * [garden](https://github.com/noprompt/garden) (`+garden`)
-* [cljs.test](https://groups.google.com/forum/#!topic/clojure/gnCl0CySSk8) (`+test`)
+* [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
 
 To add a profile to the base template, just append the profile name (let's use `+garden` as an example):
 
@@ -65,10 +65,10 @@ Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
 
 ```
 lein clean
-lein cljsbuild auto test
+lein doo phantom test once
 ```
 
-*Note: This requires [phantomjs](https://www.npmjs.com/package/phantomjs).*
+The above command assumes that you have [phantomjs](https://www.npmjs.com/package/phantomjs) installed. However, please note that [doo](https://github.com/bensu/doo) can be configured to run cljs.test in many other JS environments (chrome, ie, safari, opera, slimer, node, rhino, or nashorn). 
 
 ## Production Build
 

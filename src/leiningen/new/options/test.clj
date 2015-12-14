@@ -4,9 +4,8 @@
 (def option "test")
 
 (defn files [data]
-  [["test/phantomjs-shims.js" (helpers/render "test/phantomjs-shims.js")]
-   ["test/unit-test.js" (helpers/render "test/unit-test.js")]
-   ["test/unit-test.html" (helpers/render "test/unit-test.html")]
+  [["test/cljs/{{path-name}}/runner.cljs"
+    (helpers/render "test/cljs/runner.cljs" data)]
 
-   ["test/cljs/test_runner.cljs" (helpers/render "test/cljs/test_runner.cljs" data)]
-   ["test/cljs/{{path-name}}/core_test.cljs" (helpers/render "test/cljs/core_test.cljs" data)]])
+   ["test/cljs/{{path-name}}/core_test.cljs"
+    (helpers/render "test/cljs/core_test.cljs" data)]])

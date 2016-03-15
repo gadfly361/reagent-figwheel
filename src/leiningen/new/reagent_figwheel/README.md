@@ -44,5 +44,5 @@ The above command assumes that you have [phantomjs](https://www.npmjs.com/packag
 
 ```
 lein clean
-lein cljsbuild once min
+lein with-profile prod cljsbuild once min
 ```

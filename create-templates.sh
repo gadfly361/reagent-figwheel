@@ -4,39 +4,46 @@ rm -r temp
 mkdir temp
 cd temp
 
-echo creating base
+printf "\ncreating base\n"
 lein new reagent-figwheel base
 cd base
-lein cljsbuild once min
+lein with-profile prod cljsbuild once min
 cd resources/public
 google-chrome index.html
 cd ../../..
 
+printf "\ncreating base +routes\n"
+lein new reagent-figwheel base-routes +routes
+cd base-routes
+lein with-profile prod cljsbuild once min
+cd resources/public
+google-chrome index.html
+cd ../../..
 
-echo creating base +test
+printf "\ncreating base +test\n"
 lein new reagent-figwheel base-test +test
 cd base-test
-lein cljsbuild once min
+lein with-profile prod cljsbuild once min
 lein doo phantom test once
 cd resources/public
 google-chrome index.html
 cd ../../..
 
-echo creating base +garden
+printf "\ncreating base +garden\n"
 lein new reagent-figwheel base-garden +garden
 cd base-garden
 lein garden once
-lein cljsbuild once min
+lein with-profile prod cljsbuild once min
 cd resources/public
 google-chrome index.html
 cd ../../..
 
 
-echo creating base +test +garden
-lein new reagent-figwheel everything +test +garden
+printf "\ncreating base +routes +test +garden\n"
+lein new reagent-figwheel everything +routes +test +garden
 cd everything
 lein garden once
-lein cljsbuild once min
+lein with-profile prod cljsbuild once min
 lein doo phantom test once
 cd resources/public
 google-chrome index.html

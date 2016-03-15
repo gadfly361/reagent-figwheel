@@ -19,6 +19,7 @@ lein new reagent-figwheel <project_name>
 
 The optional profiles include:
 
+* [secretary](https://github.com/gf3/secretary) (`+routes`)
 * [garden](https://github.com/noprompt/garden) (`+garden`)
 * [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
 
@@ -74,4 +75,4 @@ The above command assumes that you have [phantomjs](https://www.npmjs.com/packag
 
 ```
 lein clean
-lein cljsbuild once min
+lein with-profile prod cljsbuild once min

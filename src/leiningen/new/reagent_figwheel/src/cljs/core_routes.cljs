@@ -42,7 +42,7 @@
 (defn home [ratom]
   (let [text (:text @ratom)]
     [:div [:h1 "Home Page"]
-     [:div text "FIXME"]
+     [:p text "FIXME"]
      [:a {:href "#/about"} "about page"]]))
 
 (defn about [ratom]

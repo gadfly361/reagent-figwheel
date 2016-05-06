@@ -1,6 +1,5 @@
 (ns {{ns-name}}.core
-    (:require
-     [reagent.core :as reagent]))
+    (:require [reagent.core :as reagent]))
 
 
 (defonce app-state
@@ -8,7 +7,7 @@
 
 (defn page [ratom]
   (let [text (:text @ratom)]
-    [:div text "FIXME"]))
+    [:p text "FIXME"]))
 
 (defn reload []
   (reagent/render [page app-state]

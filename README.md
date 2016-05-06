@@ -1,6 +1,6 @@
-# reagent-figwheel
+# reagent-figwheel-template
 
-Leiningen template for [reagent](https://github.com/holmsand/reagent) web apps with [figwheel](https://github.com/bhauman/lein-figwheel).
+Leiningen template for [reagent](https://github.com/reagent-project/reagent) web apps.
 
 Through the use of profiles, this template lets the developer pick and choose what is included in their application.
 
@@ -14,30 +14,43 @@ The base template includes:
 To create an application with the base template:
 
 ```
-lein new reagent-figwheel <project_name>
+lein new reagent-figwheel <project-name>
 ```
 
 The optional profiles include:
 
-* [secretary](https://github.com/gf3/secretary) (`+routes`)
-* [garden](https://github.com/noprompt/garden) (`+garden`)
+* [cider](https://github.com/clojure-emacs/cider) (`+cider`)
 * [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
+* [garden](https://github.com/noprompt/garden) (`+garden`)
+* [less](https://github.com/montoux/lein-less) (`+less`)
+* [secretary](https://github.com/gf3/secretary) (`+routes`)
 
-To add a profile to the base template, just append the profile name (let's use `+garden` as an example):
-
-```
-lein new reagent-figwheel <project-name> +garden
-```
-
-Any combination of profiles can be added at once (let's add all the profiles as an example):
+To add a profile to the base template, just append the profile name (let's use `+routes` as an example):
 
 ```
-lein new reagent-figwheel <project-name> +garden +test
+lein new reagent-figwheel <project-name> +routes
+```
+
+Any combination of profiles can be added at once:
+
+```
+lein new reagent-figwheel <project-name> +cider +test +garden +less +routes
 ```
 
 ## Development Mode
 
-### Compile css (if using +garden):
+### Start Cider from Emacs (if using +cider):
+
+Put this in your Emacs config file:
+
+```
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+```
+
+Navigate to a clojurescript file and start a figwheel REPL with `cider-jack-in-clojurescript` or (`C-c M-J`)
+
+
+### Compile css (if using +garden or +less):
 
 Compile css file once.
 
@@ -45,10 +58,22 @@ Compile css file once.
 lein garden once
 ```
 
+or
+
+```
+lein less once
+```
+
 Automatically recompile css file on change.
 
 ```
 lein garden auto
+```
+
+or
+
+```
+lein less auto
 ```
 
 ### Run application:
@@ -75,4 +100,31 @@ The above command assumes that you have [phantomjs](https://www.npmjs.com/packag
 
 ```
 lein clean
-lein with-profile prod cljsbuild once min
+lein cljsbuild once min
+```
+
+## License
+
+```
+The MIT License (MIT)
+
+Copyright © 2014 Matthew Jaoudi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

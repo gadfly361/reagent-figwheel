@@ -7,7 +7,15 @@ cd temp
 printf "\ncreating base\n"
 lein new reagent-figwheel base
 cd base
-lein with-profile prod cljsbuild once min
+lein cljsbuild once min
+cd resources/public
+google-chrome index.html
+cd ../../..
+
+printf "\ncreating base +cider\n"
+lein new reagent-figwheel base-cider +cider
+cd base-cider
+lein cljsbuild once min
 cd resources/public
 google-chrome index.html
 cd ../../..
@@ -15,7 +23,7 @@ cd ../../..
 printf "\ncreating base +routes\n"
 lein new reagent-figwheel base-routes +routes
 cd base-routes
-lein with-profile prod cljsbuild once min
+lein cljsbuild once min
 cd resources/public
 google-chrome index.html
 cd ../../..
@@ -23,7 +31,7 @@ cd ../../..
 printf "\ncreating base +test\n"
 lein new reagent-figwheel base-test +test
 cd base-test
-lein with-profile prod cljsbuild once min
+lein cljsbuild once min
 lein doo phantom test once
 cd resources/public
 google-chrome index.html
@@ -33,17 +41,27 @@ printf "\ncreating base +garden\n"
 lein new reagent-figwheel base-garden +garden
 cd base-garden
 lein garden once
-lein with-profile prod cljsbuild once min
+lein cljsbuild once min
+cd resources/public
+google-chrome index.html
+cd ../../..
+
+printf "\ncreating base +less\n"
+lein new reagent-figwheel base-less +less
+cd base-less
+lein less once
+lein cljsbuild once min
 cd resources/public
 google-chrome index.html
 cd ../../..
 
 
-printf "\ncreating base +routes +test +garden\n"
-lein new reagent-figwheel everything +routes +test +garden
+printf "\ncreating base +cider +routes +test +garden +less\n"
+lein new reagent-figwheel everything +cider +routes +test +garden +less
 cd everything
 lein garden once
-lein with-profile prod cljsbuild once min
+lein less once
+lein cljsbuild once min
 lein doo phantom test once
 cd resources/public
 google-chrome index.html

@@ -1,9 +1,20 @@
 # {{name}}
 
-A reagent application designed to ... well, that part is up to you.
+A [reagent](https://github.com/reagent-project/reagent) application designed to ... well, that part is up to you.
 
 ## Development Mode
 
+{{#cider?}}### Start Cider from Emacs:
+
+Put this in your Emacs config file:
+
+```
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+```
+
+Navigate to a clojurescript file and start a figwheel REPL with `cider-jack-in-clojurescript` or (`C-c M-J`)
+
+{{/cider?}}
 {{#garden?}}### Compile css:
 
 Compile css file once.
@@ -18,7 +29,21 @@ Automatically recompile css file on change.
 lein garden auto
 ```
 
-{{/garden?}}
+{{/garden?}}{{#less?}}### Compile css:
+
+Compile css file once.
+
+```
+lein less once
+```
+
+Automatically recompile css file on change.
+
+```
+lein less auto
+```
+
+{{/less?}}
 ### Run application:
 
 ```
@@ -44,5 +69,5 @@ The above command assumes that you have [phantomjs](https://www.npmjs.com/packag
 
 ```
 lein clean
-lein with-profile prod cljsbuild once min
+lein cljsbuild once min
 ```

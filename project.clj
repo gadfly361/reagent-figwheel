@@ -1,4 +1,4 @@
-(defproject reagent-figwheel/lein-template "0.2.1"
+(defproject reagent-figwheel/lein-template "0.2.2"
   :description "Starter template for react/reagent applications with figwheel"
   :url "https://github.com/gadfly361/reagent-figwheel"
   :license {:name "MIT"}

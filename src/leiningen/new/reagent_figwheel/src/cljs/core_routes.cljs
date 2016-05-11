@@ -13,8 +13,7 @@
                  :page :nil}))
 
 
-;; ------------------------------
-;; routing
+;; Routing
 
 (defn hook-browser-navigation! []
   (doto (History.)
@@ -33,10 +32,11 @@
   (defroute "/about" []
     (swap! app-state assoc :page :about))
 
+  ;; add routes here
+
   (hook-browser-navigation!))
 
 
-;; ------------------------------
 ;; Pages
 
 (defn home [ratom]
@@ -50,8 +50,7 @@
    [:a {:href "#/"} "home page"]])
 
 
-;; ------------------------------
-;; initialize app
+;; Initialize App
 
 (defmulti page identity)
 (defmethod page :home [] home)

@@ -22,6 +22,7 @@ The optional profiles include:
 * [cider](https://github.com/clojure-emacs/cider) (`+cider`)
 * [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
 * [garden](https://github.com/noprompt/garden) (`+garden`)
+* [keechma](https://github.com/keechma/keechma) (`+keechma`)
 * [less](https://github.com/montoux/lein-less) (`+less`)
 * [secretary](https://github.com/gf3/secretary) (`+routes`)
 
@@ -31,11 +32,13 @@ To add a profile to the base template, just append the profile name (let's use `
 lein new reagent-figwheel <project-name> +routes
 ```
 
-Any combination of profiles can be added at once:
+Any combination<sup>1</sup> of profiles can be added at once:
 
 ```
 lein new reagent-figwheel <project-name> +cider +test +garden +less +routes
 ```
+
+<sup>1</sup> *Well almost any ... if `+keechma` and `+routes` are used together, only `+keechma` will be applied.*
 
 ## Development Mode
 

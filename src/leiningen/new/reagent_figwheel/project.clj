@@ -3,7 +3,8 @@
                  [org.clojure/clojurescript "1.7.228"]
                  [reagent "0.5.1"]{{#routes?}}
                  [secretary "1.2.3"]{{/routes?}}{{#garden?}}
-                 [garden "1.3.2"]{{/garden?}}]
+                 [garden "1.3.2"]{{/garden?}}{{#keechma?}}
+                 [keechma "0.1.0-SNAPSHOT" :exclusions [cljsjs/react-with-addons]]{{/keechma?}}]
 
   :min-lein-version "2.5.3"
 

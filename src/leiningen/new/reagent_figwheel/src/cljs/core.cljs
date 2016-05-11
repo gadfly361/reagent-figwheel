@@ -6,8 +6,7 @@
   (reagent/atom {:text "Hello, what is your name? "}))
 
 (defn page [ratom]
-  (let [text (:text @ratom)]
-    [:p text "FIXME"]))
+  [:p (:text @ratom) "FIXME"])
 
 (defn reload []
   (reagent/render [page app-state]

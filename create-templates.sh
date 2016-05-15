@@ -22,6 +22,17 @@ cd resources/public
 google-chrome index.html
 cd ../../..
 
+# devcards
+printf "\ncreating base +devcards\n"
+lein new reagent-figwheel base-devcards +devcards
+cd base-devcards
+lein cljsbuild once min
+lein cljsbuild once hostedcards
+cd resources/public
+google-chrome index.html
+google-chrome cards.html
+cd ../../..
+
 # keechma
 printf "\ncreating base +keechma\n"
 lein new reagent-figwheel base-keechma +keechma
@@ -71,25 +82,29 @@ google-chrome index.html
 cd ../../..
 
 # Everything sans Keechma
-printf "\ncreating base +cider +routes +test +garden +less\n"
-lein new reagent-figwheel everything-sans-keechma +cider +routes +test +garden +less
+printf "\ncreating base +cider +routes +test +garden +less +devcards\n"
+lein new reagent-figwheel everything-sans-keechma +cider +routes +test +garden +less +devcards
 cd everything-sans-keechma
 lein garden once
 lein less once
 lein cljsbuild once min
+lein cljsbuild once hostedcards
 lein doo phantom test once
 cd resources/public
 google-chrome index.html
+google-chrome cards.html
 cd ../../..
 
 # Everything
-printf "\ncreating base +cider +routes +test +garden +less +keechma\n"
-lein new reagent-figwheel everything +cider +routes +test +garden +less +keechma
+printf "\ncreating base +cider +routes +test +garden +less +keechma +devcards\n"
+lein new reagent-figwheel everything +cider +routes +test +garden +less +keechma +devcards
 cd everything
 lein garden once
 lein less once
 lein cljsbuild once min
+lein cljsbuild once hostedcards
 lein doo phantom test once
 cd resources/public
 google-chrome index.html
+google-chrome cards.html
 cd ../../..

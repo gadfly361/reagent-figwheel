@@ -2,6 +2,7 @@
   (:require
    [leiningen.core.main :as main]
    [leiningen.new.options.base :as base]
+   [leiningen.new.options.devcards :as devcards]
    [leiningen.new.options.garden :as garden]
    [leiningen.new.options.less :as less]
    [leiningen.new.options.routes :as routes]
@@ -11,11 +12,12 @@
   (:use [leiningen.new.templates :only [name-to-path sanitize-ns ->files]]))
 
 (defn app-files [data options]
-  (let [garden?  (helpers/option? garden/option options)
-        keechma? (helpers/option? keechma/option options)
-        less?    (helpers/option? less/option options)
-        routes?  (helpers/option? routes/option options)
-        test?    (helpers/option? test/option options)]
+  (let [devcards? (helpers/option? devcards/option options)
+        garden?   (helpers/option? garden/option options)
+        keechma?  (helpers/option? keechma/option options)
+        less?     (helpers/option? less/option options)
+        routes?   (helpers/option? routes/option options)
+        test?     (helpers/option? test/option options)]
     (concat
      (base/files data)
 
@@ -24,6 +26,7 @@
        routes?  (routes/core-cljs data)
        :else    (base/core-cljs data))
 
+     (when devcards? (devcards/files data))
      (when garden? (garden/files data))
      (when less? (less/files data))
      (when test? (test/files data)))))
@@ -33,6 +36,7 @@
    :ns-name   (sanitize-ns name)
    :sanitized (name-to-path name)
    :cider?    (helpers/invoke-option "cider" options)
+   :devcards? (helpers/invoke-option devcards/option options)
    :garden?   (helpers/invoke-option garden/option options)
    :keechma?  (helpers/invoke-option keechma/option options)
    :less?     (helpers/invoke-option less/option options)

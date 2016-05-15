@@ -21,6 +21,7 @@ The optional profiles include:
 
 * [cider](https://github.com/clojure-emacs/cider) (`+cider`)
 * [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
+* [devcards](https://github.com/bhauman/devcards) (`+devcards`)
 * [garden](https://github.com/noprompt/garden) (`+garden`)
 * [keechma](https://github.com/keechma/keechma) (`+keechma`)
 * [less](https://github.com/montoux/lein-less) (`+less`)
@@ -97,7 +98,29 @@ lein clean
 lein doo phantom test once
 ```
 
-The above command assumes that you have [phantomjs](https://www.npmjs.com/package/phantomjs) installed. However, please note that [doo](https://github.com/bensu/doo) can be configured to run cljs.test in many other JS environments (chrome, ie, safari, opera, slimer, node, rhino, or nashorn). 
+The above command assumes that you have [phantomjs](https://www.npmjs.com/package/phantomjs) installed. However, please note that [doo](https://github.com/bensu/doo) can be configured to run cljs.test in many other JS environments (chrome, ie, safari, opera, slimer, node, rhino, or nashorn).
+
+### Devcards (if using +devcards)
+
+```
+lein clean
+lein figwheel devcards
+```
+
+Figwheel will automatically push cljs changes to the browser.
+
+Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
+
+---
+
+To build a minified version:
+
+```
+lein clean
+lein cljsbuild once hostedcards
+```
+
+Then open *resources/public/index.html*
 
 ## Production Build
 

@@ -58,30 +58,30 @@
                     :source-map-timestamp true}}
 
     {{#devcards?}}
-    {:id "devcards"
-       :source-paths ["src/devcards" "src/cljs"]
-       :figwheel {:devcards true }
-       :compiler {:main "{{name}}.core-card"
-                  :asset-path "js/compiled/devcards_out"
-                  :output-to  "resources/public/js/compiled/devcards.js"
-                  :output-dir "resources/public/js/compiled/devcards_out"
-                  :source-map-timestamp true }}
+    {:id           "devcards"
+     :source-paths ["src/devcards" "src/cljs"]
+     :figwheel     {:devcards true }
+     :compiler     {:main                 "{{name}}.core-card"
+                    :asset-path           "js/compiled/devcards_out"
+                    :output-to            "resources/public/js/compiled/devcards.js"
+                    :output-dir           "resources/public/js/compiled/devcards_out"
+                    :source-map-timestamp true }}
 
-      {:id "hostedcards"
-       :source-paths ["src/devcards" "src/cljs"]
-       :compiler {:main "{{name}}.core-card"
-                  :devcards true
-                  :asset-path "js/compiled/devcards_out"
-                  :output-to  "resources/public/js/compiled/devcards.js"
-                  :optimizations :advanced}}
+    {:id           "hostedcards"
+     :source-paths ["src/devcards" "src/cljs"]
+     :compiler     {:main          "{{name}}.core-card"
+                    :devcards      true
+                    :asset-path    "js/compiled/devcards_out"
+                    :output-to     "resources/public/js/compiled/devcards.js"
+                    :optimizations :advanced}}
 
     {{/devcards?}}
     {:id           "min"
      :source-paths ["src/cljs"]
-     :compiler     {:main            {{name}}.core
-                    :output-to       "resources/public/js/compiled/app.js"
-                    :optimizations   :advanced
-                    :pretty-print    false}}
+     :compiler     {:main          {{name}}.core
+                    :output-to     "resources/public/js/compiled/app.js"
+                    :optimizations :advanced
+                    :pretty-print  false}}
     {{#test?}}
 
     {:id           "test"

@@ -74,7 +74,7 @@ lein figwheel devcards
 
 Figwheel will automatically push cljs changes to the browser.
 
-Wait a bit, then browse to [http://localhost:3449](http://localhost:3449/cards.html).
+Wait a bit, then browse to [http://localhost:3449/cards.html](http://localhost:3449/cards.html).
 
 ---
 

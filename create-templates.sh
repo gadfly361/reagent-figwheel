@@ -42,10 +42,29 @@ cd resources/public
 google-chrome index.html
 cd ../../..
 
+# petrol
+printf "\ncreating base +petrol\n"
+lein new reagent-figwheel base-petrol +petrol
+cd base-petrol
+lein cljsbuild once min
+cd resources/public
+google-chrome index.html
+cd ../../..
+
 # routes
 printf "\ncreating base +routes\n"
 lein new reagent-figwheel base-routes +routes
 cd base-routes
+lein cljsbuild once min
+cd resources/public
+google-chrome index.html
+cd ../../..
+
+
+# petrol + routes
+printf "\ncreating base +petrol +routes\n"
+lein new reagent-figwheel base-petrol-routes +petrol +routes
+cd base-petrol-routes
 lein cljsbuild once min
 cd resources/public
 google-chrome index.html
@@ -81,10 +100,10 @@ cd resources/public
 google-chrome index.html
 cd ../../..
 
-# Everything sans Keechma
-printf "\ncreating base +cider +routes +test +garden +less +devcards\n"
-lein new reagent-figwheel everything-sans-keechma +cider +routes +test +garden +less +devcards
-cd everything-sans-keechma
+# Everything sans framwork
+printf "\neverything sans framework\n"
+lein new reagent-figwheel everything-sans-framework +cider +routes +test +garden +less +devcards
+cd everything-sans-framework
 lein garden once
 lein less once
 lein cljsbuild once min
@@ -95,10 +114,24 @@ google-chrome index.html
 google-chrome cards.html
 cd ../../..
 
-# Everything
-printf "\ncreating base +cider +routes +test +garden +less +keechma +devcards\n"
-lein new reagent-figwheel everything +cider +routes +test +garden +less +keechma +devcards
-cd everything
+# Everything +petrol
+printf "\neverything +petrol\n"
+lein new reagent-figwheel everything-petrol +cider +routes +test +garden +less +devcards +petrol
+cd everything-petrol
+lein garden once
+lein less once
+lein cljsbuild once min
+lein cljsbuild once hostedcards
+lein doo phantom test once
+cd resources/public
+google-chrome index.html
+google-chrome cards.html
+cd ../../..
+
+# Everything +keechma
+printf "\neverything +keechma\n"
+lein new reagent-figwheel everything-keechma +cider +routes +test +garden +less +devcards +keechma
+cd everything-keechma
 lein garden once
 lein less once
 lein cljsbuild once min

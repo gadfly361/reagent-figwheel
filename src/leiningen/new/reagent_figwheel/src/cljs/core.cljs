@@ -1,5 +1,5 @@
 (ns {{ns-name}}.core
-    (:require [reagent.core :as reagent]))
+  (:require [reagent.core :as reagent]))
 
 
 (defonce app-state

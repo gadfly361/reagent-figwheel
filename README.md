@@ -23,8 +23,9 @@ The optional profiles include:
 * [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
 * [devcards](https://github.com/bhauman/devcards) (`+devcards`)
 * [garden](https://github.com/noprompt/garden) (`+garden`)
-* [keechma](https://github.com/keechma/keechma) (`+keechma`)
+* [keechma (framework)](https://github.com/keechma/keechma) (`+keechma`)
 * [less](https://github.com/montoux/lein-less) (`+less`)
+* [petrol (framework)](https://github.com/krisajenkins/petrol) (`+petrol`)
 * [secretary](https://github.com/gf3/secretary) (`+routes`)
 
 To add a profile to the base template, just append the profile name (let's use `+routes` as an example):
@@ -33,13 +34,16 @@ To add a profile to the base template, just append the profile name (let's use `
 lein new reagent-figwheel <project-name> +routes
 ```
 
-Any combination<sup>1</sup> of profiles can be added at once:
+Most combinations of profiles can be added at once:
 
 ```
 lein new reagent-figwheel <project-name> +cider +test +garden +less +routes
 ```
 
-<sup>1</sup> *Well almost any ... if `+keechma` and `+routes` are used together, only `+keechma` will be applied.*
+The only restrictios are:
+
+* Only pick up to one *"framework"*, `+keechma` or `+petrol`
+* If `+keechma` and `+routes` are used together, only `+keechma` will be applied.*
 
 ## Development Mode
 

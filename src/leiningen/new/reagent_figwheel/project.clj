@@ -4,7 +4,8 @@
                  [reagent "0.5.1"]{{#routes?}}
                  [secretary "1.2.3"]{{/routes?}}{{#garden?}}
                  [garden "1.3.2"]{{/garden?}}{{#keechma?}}
-                 [keechma "0.1.0-SNAPSHOT" :exclusions [cljsjs/react-with-addons]]{{/keechma?}}{{#devcards?}}
+                 [keechma "0.1.0-SNAPSHOT" :exclusions [cljsjs/react-with-addons]]{{/keechma?}}{{#petrol?}}
+                 [petrol "0.1.3"]{{/petrol?}}{{#devcards?}}
                  [devcards "0.2.0-8" :exclusions [cljsjs/react]]{{/devcards?}}]
 
   :min-lein-version "2.5.3"

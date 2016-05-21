@@ -1,11 +1,11 @@
 (ns {{ns-name}}.core
-    (:require-macros [secretary.core :refer [defroute]])
-    (:import goog.History)
-    (:require
-     [secretary.core :as secretary]
-     [goog.events :as events]
-     [goog.history.EventType :as EventType]
-     [reagent.core :as reagent]))
+  (:require-macros [secretary.core :refer [defroute]])
+  (:import goog.History)
+  (:require
+   [secretary.core :as secretary]
+   [goog.events :as events]
+   [goog.history.EventType :as EventType]
+   [reagent.core :as reagent]))
 
 
 (defonce app-state

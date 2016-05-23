@@ -3,10 +3,13 @@
 
 
 (defonce app-state
-  (reagent/atom {:text "Hello, what is your name? "}))
+  (reagent/atom
+   {:text "Hello, what is your name? "}))
+
 
 (defn page [ratom]
   [:p (:text @ratom) "FIXME"])
+
 
 (defn reload []
   (reagent/render [page app-state]

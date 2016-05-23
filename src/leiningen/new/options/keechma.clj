@@ -1,7 +1,7 @@
 (ns leiningen.new.options.keechma
   (:require [leiningen.new.options.helpers :as helpers]))
 
-(def option "keechma")
+(def option "+keechma")
 
 (defn core-cljs [data]
   [["src/cljs/{{sanitized}}/core.cljs"

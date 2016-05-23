@@ -1,7 +1,7 @@
 (ns leiningen.new.options.devcards
   (:require [leiningen.new.options.helpers :as helpers]))
 
-(def option "devcards")
+(def option "+devcards")
 
 (defn files [data]
   [["src/devcards/{{sanitized}}/core_card.cljs"

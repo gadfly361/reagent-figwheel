@@ -29,16 +29,15 @@
 ;; View
 
 (defn page [ui-channel app]
-  [:div.container
-   [:h1 "Count: " (:counter app)]
-   [:div
-    [:button {:on-click (petrol/send! ui-channel (->Decrement))}
-     "Decrement"]
-    [:button {:on-click (petrol/send! ui-channel (->Increment))}
-     "Increment"]]])
+  [:div
+   [:button {:on-click (petrol/send! ui-channel (->Decrement))}
+    "Decrement"]
+   [:button {:on-click (petrol/send! ui-channel (->Increment))}
+    "Increment"]]
+  [:p "Count: " (:counter app)])
 
 
-;; Start Application
+;; Initialize App
 
 (defn reload []
   (swap! app-state identity))

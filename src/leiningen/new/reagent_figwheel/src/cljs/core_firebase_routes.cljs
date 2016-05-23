@@ -5,12 +5,16 @@
    [secretary.core :as secretary]
    [goog.events :as events]
    [goog.history.EventType :as EventType]
-   [reagent.core :as reagent]))
+   [reagent.core :as reagent]
+   [matchbox.core :as m]
+   [matchbox.reagent :as r]))
 
+
+;; TODO: fix url
+(def root (m/connect "https://FIXME.firebaseio.com/"))
 
 (defonce app-state
-  (reagent/atom {:text "Hello, what is your name? "
-                 :page :nil}))
+  (r/sync-rw root))
 
 
 ;; Routes
@@ -27,10 +31,10 @@
   (secretary/set-config! :prefix "#")
 
   (defroute "/" []
-    (swap! app-state assoc :page :home))
+    (m/swap! root assoc :page :home))
 
   (defroute "/about" []
-    (swap! app-state assoc :page :about))
+    (m/swap! root assoc :page :about))
 
   ;; add routes here
 
@@ -41,10 +45,18 @@
 ;; Pages
 
 (defn home [ratom]
-  (let [text (:text @ratom)]
+  (let [count (:count @ratom)]
     [:div [:h1 "Home Page"]
-     [:p text "FIXME"]
-     [:a {:href "#/about"} "about page"]]))
+     [:a {:href "#/about"} "about page"]
+
+     [:p "Count: " count]
+     [:div
+      [:button
+       {:on-click #(m/swap! root update :count dec)}
+       "Decrement"]
+      [:button
+       {:on-click #(m/swap! root update :count inc)}
+       "Increment"]]]))
 
 (defn about [ratom]
   [:div [:h1 "About Page"]
@@ -68,5 +80,6 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export main []
+  (m/deref root #(reset! app-state %))
   (app-routes)
   (reload))

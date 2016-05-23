@@ -19,14 +19,23 @@ lein new reagent-figwheel <project-name>
 
 The optional profiles include:
 
-* [cider](https://github.com/clojure-emacs/cider) (`+cider`)
-* [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
-* [devcards](https://github.com/bhauman/devcards) (`+devcards`)
-* [garden](https://github.com/noprompt/garden) (`+garden`)
-* [keechma (framework)](https://github.com/keechma/keechma) (`+keechma`)
-* [less](https://github.com/montoux/lein-less) (`+less`)
-* [petrol (framework)](https://github.com/krisajenkins/petrol) (`+petrol`)
-* [secretary](https://github.com/gf3/secretary) (`+routes`)
+* CSS
+	* [garden](https://github.com/noprompt/garden) (`+garden`)
+	* [less](https://github.com/montoux/lein-less) (`+less`)
+* Development
+	* [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
+	* [devcards](https://github.com/bhauman/devcards) (`+devcards`)
+* Editor
+	* [cider](https://github.com/clojure-emacs/cider) (`+cider`)
+* Frameworks (Pick up to one)
+	* [keechma](https://github.com/keechma/keechma) (`+keechma`)
+	* [petrol](https://github.com/krisajenkins/petrol) (`+petrol`)
+* Persistence
+	* [matchbox](https://github.com/crisptrutski/matchbox) (`+firebase`)
+        * Note: this uses version 2.4.1-0 of firebase
+* Routing
+	* [secretary](https://github.com/gf3/secretary) (`+routes`)
+
 
 To add a profile to the base template, just append the profile name (let's use `+routes` as an example):
 
@@ -40,10 +49,11 @@ Most combinations of profiles can be added at once, for example:
 lein new reagent-figwheel <project-name> +cider +test +garden +less +routes +petrol
 ```
 
-The only restrictions are:
+However, there are the following **restrictions**:
 
-* Pick up to one *"framework"*, `+keechma` or `+petrol`
-* If `+keechma` and `+routes` are used together, only `+keechma` will be applied.*
+* Can only select up to one *"framework"* (`+keechma` or `+petrol`)
+* `+routes` cannot be used with `+keechma`
+* `+firebase` cannot be used with a framework (`+keechma` or `+petrol`)
 
 ## Development Mode
 

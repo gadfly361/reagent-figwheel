@@ -52,7 +52,7 @@
    [:a {:href "#/"} "home page"]])
 
 
-;; Routing
+;; Routes
 
 (defn hook-browser-navigation! []
   (doto (History.)
@@ -74,10 +74,11 @@
 
   ;; add routes here
 
+
   (hook-browser-navigation!))
 
 
-;; Start Application
+;; Initialize App
 
 (defmulti page identity)
 (defmethod page :home [] home)

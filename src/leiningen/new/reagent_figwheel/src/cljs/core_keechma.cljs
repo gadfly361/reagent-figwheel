@@ -22,8 +22,8 @@
     (controller/dispatcher
      app-db-atom
      in-chan
-     {:inc #(swap! app-db-atom update-in [:count] inc)
-      :dec #(swap! app-db-atom update-in [:count] dec)})))
+     {:dec #(swap! app-db-atom update-in [:count] dec)
+      :inc #(swap! app-db-atom update-in [:count] inc)})))
 
 
 ;; Subs
@@ -39,9 +39,9 @@
   (let [counter-sub (ui/subscription app-db :counter-value)]
     (fn []
       [:div
-       [:p (str "Clicked: " @counter-sub " times")]
-       [:button {:on-click #(ui/send-command app-db :inc)} "+"]
-       [:button {:on-click #(ui/send-command app-db :dec)} "-"]])))
+       [:button {:on-click #(ui/send-command app-db :dec)} "Decrement"]
+       [:button {:on-click #(ui/send-command app-db :inc)} "Increment"]
+       [:p (str "Count: " @counter-sub)]])))
 
 (def counter-component
   (ui/constructor

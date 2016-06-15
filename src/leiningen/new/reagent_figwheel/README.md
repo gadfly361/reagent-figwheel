@@ -4,6 +4,16 @@ A [reagent](https://github.com/reagent-project/reagent) application designed to 
 
 ## Development Mode
 
+{{#devtools?}}### cljs-devtools
+
+To enable:
+
+1. Open Chrome's DevTools,`Ctrl-Shift-i`
+2. Open "Settings", `F1`
+3. Check "Enable custom formatters" under the "Console" section
+4. close and re-open DevTools
+
+{{/devtools?}}
 {{#cider?}}### Start Cider from Emacs:
 
 Put this in your Emacs config file:

@@ -25,6 +25,7 @@ The optional profiles include:
 * Development
 	* [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
 	* [devcards](https://github.com/bhauman/devcards) (`+devcards`)
+	* [cljs-devtools](https://github.com/binaryage/cljs-devtools) (`+devtools`)
 * Editor
 	* [cider](https://github.com/clojure-emacs/cider) (`+cider`)
 * Frameworks (Pick up to one)
@@ -67,6 +68,14 @@ Put this in your Emacs config file:
 
 Navigate to a clojurescript file and start a figwheel REPL with `cider-jack-in-clojurescript` or (`C-c M-J`)
 
+### cljs-devtools (if using +devtools)
+
+To enable:
+
+1. Open Chrome's DevTools,`Ctrl-Shift-i`
+2. Open "Settings", `F1`
+3. Check "Enable custom formatters" under the "Console" section
+4. close and re-open DevTools
 
 ### Compile css (if using +garden or +less):
 
@@ -142,6 +151,11 @@ Then open *resources/public/cards.html*
 lein clean
 lein cljsbuild once min
 ```
+
+## Other Templates
+
+* [re-frame-template](https://github.com/Day8/re-frame-template)
+* [reagent-seed](https://github.com/gadfly361/reagent-seed)
 
 ## License
 

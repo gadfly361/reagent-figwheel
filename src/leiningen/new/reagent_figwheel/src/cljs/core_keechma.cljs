@@ -5,7 +5,20 @@
    [reagent.core :as reagent]
    [keechma.ui-component :as ui]
    [keechma.controller :as controller]
-   [keechma.app-state :as app-state]))
+   [keechma.app-state :as app-state]{{#devtools?}}
+   [devtools.core :as devtools]{{/devtools?}}
+   ))
+
+
+(defonce debug?
+  ^boolean js/goog.DEBUG)
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 
 ;; Controllers
@@ -69,4 +82,5 @@
       (start-app!))))
 
 (defn ^:export main []
+  (dev-setup)
   (start-app!))

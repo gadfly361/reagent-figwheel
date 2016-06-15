@@ -4,6 +4,7 @@
    [leiningen.new.options.base :as base]
    [leiningen.new.options.cider :as cider]
    [leiningen.new.options.devcards :as devcards]
+   [leiningen.new.options.devtools :as devtools]
    [leiningen.new.options.garden :as garden]
    [leiningen.new.options.firebase :as firebase]
    [leiningen.new.options.keechma :as keechma]
@@ -57,6 +58,7 @@
    :sanitized (name-to-path name)
    :cider?    (helpers/invoke-option cider/option options)
    :devcards? (helpers/invoke-option devcards/option options)
+   :devtools? (helpers/invoke-option devtools/option options)
    :garden?   (helpers/invoke-option garden/option options)
    :firebase? (helpers/invoke-option firebase/option options)
    :keechma?  (helpers/invoke-option keechma/option options)
@@ -73,6 +75,7 @@
 (def available-set
   #{cider/option
     devcards/option
+    devtools/option
     garden/option
     firebase/option
     keechma/option

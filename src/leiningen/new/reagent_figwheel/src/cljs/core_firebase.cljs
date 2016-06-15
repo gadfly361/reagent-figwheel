@@ -2,7 +2,20 @@
   (:require
    [reagent.core :as reagent]
    [matchbox.core :as m]
-   [matchbox.reagent :as r]))
+   [matchbox.reagent :as r]{{#devtools?}}
+   [devtools.core :as devtools]{{/devtools?}}
+   ))
+
+
+(defonce debug?
+  ^boolean js/goog.DEBUG)
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 
 ;; TODO: fix url
@@ -33,5 +46,6 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export main []
+  (dev-setup)
   (m/deref root #(reset! app-state %))
   (reload))

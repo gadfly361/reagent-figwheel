@@ -5,7 +5,20 @@
    [secretary.core :as secretary]
    [goog.events :as events]
    [goog.history.EventType :as EventType]
-   [reagent.core :as reagent]))
+   [reagent.core :as reagent]{{#devtools?}}
+   [devtools.core :as devtools]{{/devtools?}}
+   ))
+
+
+(defonce debug?
+  ^boolean js/goog.DEBUG)
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 
 (defonce app-state
@@ -68,5 +81,6 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export main []
+  (dev-setup)
   (app-routes)
   (reload))

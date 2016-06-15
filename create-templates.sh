@@ -33,6 +33,15 @@ google-chrome index.html
 google-chrome cards.html
 cd ../../..
 
+# devtools
+printf "\ncreating base +devtools\n"
+lein new reagent-figwheel base-devtools +devtools
+cd base-devtools
+lein cljsbuild once min
+cd resources/public
+google-chrome index.html
+cd ../../..
+
 # firebase
 printf "\ncreating base +firebase\n"
 lein new reagent-figwheel base-firebase +firebase
@@ -119,7 +128,7 @@ cd ../../..
 
 # Everything sans framework
 printf "\neverything sans framework\n"
-lein new reagent-figwheel everything-sans-framework +cider +routes +test +garden +less +devcards +firebase
+lein new reagent-figwheel everything-sans-framework +cider +routes +test +garden +less +devcards +firebase +devtools
 cd everything-sans-framework
 lein garden once
 lein less once
@@ -133,7 +142,7 @@ cd ../../..
 
 # Everything +petrol
 printf "\neverything +petrol\n"
-lein new reagent-figwheel everything-petrol +cider +routes +test +garden +less +devcards +petrol
+lein new reagent-figwheel everything-petrol +cider +routes +test +garden +less +devcards +devtools +petrol
 cd everything-petrol
 lein garden once
 lein less once
@@ -147,7 +156,7 @@ cd ../../..
 
 # Everything +keechma
 printf "\neverything +keechma\n"
-lein new reagent-figwheel everything-keechma +cider +test +garden +less +devcards +keechma
+lein new reagent-figwheel everything-keechma +cider +test +garden +less +devcards +devtools +keechma
 cd everything-keechma
 lein garden once
 lein less once

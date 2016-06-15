@@ -40,13 +40,14 @@
   {{/cider?}}
   :profiles
   {:dev
-   {:plugins [[lein-figwheel "0.5.3"]{{#test?}}
-              [lein-doo "0.1.6"]{{/test?}}{{#cider?}}
-              [cider/cider-nrepl "0.13.0-SNAPSHOT"]{{/cider?}}]
-   {{#cider?}}
-    :dependencies [[figwheel-sidecar "0.5.3"]
-                   [com.cemerick/piggieback "0.2.1"]]{{/cider?}}
-   }}
+   {:dependencies [{{#devtools?}}[binaryage/devtools "0.6.1"]{{/devtools?}}{{#cider?}}
+                   [figwheel-sidecar "0.5.3"]
+                   [com.cemerick/piggieback "0.2.1"]{{/cider?}}]
+
+    :plugins      [[lein-figwheel "0.5.3"]{{#test?}}
+                   [lein-doo "0.1.6"]{{/test?}}{{#cider?}}
+                   [cider/cider-nrepl "0.13.0-SNAPSHOT"]{{/cider?}}]
+    }}
 
   :cljsbuild
   {:builds
@@ -83,6 +84,7 @@
      :compiler     {:main          {{name}}.core
                     :output-to     "resources/public/js/compiled/app.js"
                     :optimizations :advanced
+                    :closure-defines {goog.DEBUG false}
                     :pretty-print  false}}
     {{#test?}}
 

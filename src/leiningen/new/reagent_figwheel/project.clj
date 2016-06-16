@@ -1,7 +1,8 @@
 (defproject {{ns-name}} "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.8.51"]
-                 [reagent "0.5.1"]{{#routes?}}
+                 [reagent "0.5.1"]{{#devtools?}}
+                 [binaryage/devtools "0.6.1"]{{/devtools?}}{{#routes?}}
                  [secretary "1.2.3"]{{/routes?}}{{#garden?}}
                  [garden "1.3.2"]{{/garden?}}{{#firebase?}}
                  [matchbox "0.0.10-SNAPSHOT"]{{/firebase?}}{{#keechma?}}
@@ -40,7 +41,7 @@
   {{/cider?}}
   :profiles
   {:dev
-   {:dependencies [{{#devtools?}}[binaryage/devtools "0.6.1"]{{/devtools?}}{{#cider?}}
+   {:dependencies [{{#cider?}}
                    [lein-figwheel "0.5.4-3"]
                    [com.cemerick/piggieback "0.2.1"]{{/cider?}}]
 

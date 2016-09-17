@@ -6,17 +6,15 @@
    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Vars
+
 (defonce debug?
   ^boolean js/goog.DEBUG)
 
-(defn dev-setup []
-  (when debug?
-    (enable-console-print!)
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
-    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Model
 
 (def initial-state
@@ -26,6 +24,8 @@
   (reagent/atom initial-state))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Update
 
 (defrecord Decrement []
@@ -39,6 +39,8 @@
     (update app :counter inc)))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; View
 
 (defn page [ui-channel app]
@@ -50,7 +52,16 @@
    [:p "Count: " (:counter app)]])
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Initialize App
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 (defn reload []
   (swap! app-state identity))

@@ -5,6 +5,7 @@
    [leiningen.new.options.cider :as cider]
    [leiningen.new.options.devcards :as devcards]
    [leiningen.new.options.devtools :as devtools]
+   [leiningen.new.options.gadfly :as gadfly]
    [leiningen.new.options.garden :as garden]
    [leiningen.new.options.firebase :as firebase]
    [leiningen.new.options.keechma :as keechma]
@@ -25,6 +26,7 @@
   "Create a list of application files based on the user-provided options"
   [data options]
   (let [devcards? (helpers/option? devcards/option options)
+        gadfly?   (helpers/option? gadfly/option options)
         garden?   (helpers/option? garden/option options)
         firebase? (helpers/option? firebase/option options)
         keechma?  (helpers/option? keechma/option options)
@@ -32,23 +34,28 @@
         petrol?   (helpers/option? petrol/option options)
         routes?   (helpers/option? routes/option options)
         test?     (helpers/option? test/option options)]
-    (concat
-     (base/files data)
 
-     (cond
-       keechma?                (keechma/core-cljs data)
-       (and firebase? routes?) (firebase/core-routes-cljs data)
-       (and petrol? routes?)   (petrol/core-routes-cljs data)
+    (if gadfly?
+      (gadfly/files data)
 
-       firebase?               (firebase/core-cljs data)
-       petrol?                 (petrol/core-cljs data)
-       routes?                 (routes/core-cljs data)
-       :else                   (base/core-cljs data))
+      ;; else
+      (concat
+       (base/files data)
 
-     (when devcards? (devcards/files data))
-     (when garden? (garden/files data))
-     (when less? (less/files data))
-     (when test? (test/files data)))))
+       (cond
+         keechma?                (keechma/core-cljs data)
+         (and firebase? routes?) (firebase/core-routes-cljs data)
+         (and petrol? routes?)   (petrol/core-routes-cljs data)
+
+         firebase? (firebase/core-cljs data)
+         petrol?   (petrol/core-cljs data)
+         routes?   (routes/core-cljs data)
+         :else     (base/core-cljs data))
+
+       (when devcards? (devcards/files data))
+       (when garden? (garden/files data))
+       (when less? (less/files data))
+       (when test? (test/files data))))))
 
 
 (defn template-data
@@ -76,6 +83,7 @@
   #{cider/option
     devcards/option
     devtools/option
+    gadfly/option
     garden/option
     firebase/option
     keechma/option

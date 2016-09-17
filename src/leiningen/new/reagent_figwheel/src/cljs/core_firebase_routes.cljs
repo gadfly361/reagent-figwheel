@@ -12,16 +12,11 @@
    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Vars
+
 (defonce debug?
   ^boolean js/goog.DEBUG)
-
-(defn dev-setup []
-  (when debug?
-    (enable-console-print!)
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
-    ))
-
 
 ;; TODO: fix url
 (def root (m/connect "https://FIXME.firebaseio.com/"))
@@ -30,6 +25,8 @@
   (r/sync-rw root))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Routes
 
 (defn hook-browser-navigation! []
@@ -55,6 +52,8 @@
   (hook-browser-navigation!))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Pages
 
 (defn home [ratom]
@@ -76,6 +75,8 @@
    [:a {:href "#/"} "home page"]])
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Initialize App
 
 (defmulti page identity)
@@ -87,6 +88,13 @@
   (let [page-key (:page @ratom)]
     [(page page-key) ratom]))
 
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 (defn reload []
   (reagent/render [current-page app-state]

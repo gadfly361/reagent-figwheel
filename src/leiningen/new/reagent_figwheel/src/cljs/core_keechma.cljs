@@ -10,17 +10,15 @@
    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Vars
+
 (defonce debug?
   ^boolean js/goog.DEBUG)
 
-(defn dev-setup []
-  (when debug?
-    (enable-console-print!)
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
-    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Controllers
 
 (defrecord Counter []
@@ -39,6 +37,8 @@
       :inc #(swap! app-db-atom update-in [:count] inc)})))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Subs
 
 (defn counter-value-sub [app-db]
@@ -46,6 +46,8 @@
    (get-in @app-db [:count])))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Components
 
 (defn counter-render [app-db]
@@ -62,6 +64,8 @@
     :subscription-deps [:counter-value]}))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Initialize App
 
 (def app-definition
@@ -74,6 +78,13 @@
 
 (defn start-app! []
   (reset! running-app (app-state/start! app-definition)))
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 (defn reload []
   (let [current @running-app]

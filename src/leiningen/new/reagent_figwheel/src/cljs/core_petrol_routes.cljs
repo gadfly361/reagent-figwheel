@@ -11,17 +11,15 @@
    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Vars
+
 (defonce debug?
   ^boolean js/goog.DEBUG)
 
-(defn dev-setup []
-  (when debug?
-    (enable-console-print!)
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
-    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Model
 
 (def initial-state
@@ -31,6 +29,8 @@
   (reagent/atom initial-state))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Update
 
 (defrecord Decrement []
@@ -44,6 +44,8 @@
     (update app :counter inc)))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; View
 
 (defn home [ui-channel app]
@@ -65,6 +67,8 @@
    [:a {:href "#/"} "home page"]])
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Routes
 
 (defn hook-browser-navigation! []
@@ -91,6 +95,8 @@
   (hook-browser-navigation!))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Initialize App
 
 (defmulti page identity)
@@ -101,6 +107,13 @@
 (defn current-page [ui-channel app]
   (let [page-key (:page app)]
     [(page page-key) ui-channel app]))
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 (defn reload []
   (swap! app-state identity))

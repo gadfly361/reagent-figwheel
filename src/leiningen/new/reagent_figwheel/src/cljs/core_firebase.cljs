@@ -7,16 +7,11 @@
    ))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Vars
+
 (defonce debug?
   ^boolean js/goog.DEBUG)
-
-(defn dev-setup []
-  (when debug?
-    (enable-console-print!)
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
-    ))
-
 
 ;; TODO: fix url
 (def root (m/connect "https://FIXME.firebaseio.com/"))
@@ -24,6 +19,10 @@
 (defonce app-state
   (r/sync-rw root))
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Page
 
 (defn page [ratom]
   (let [count (:count @ratom)]
@@ -40,6 +39,17 @@
      [:p "Count: " count]
      ]))
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Initialize App
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode"){{#devtools?}}
+    (devtools/install!){{/devtools?}}
+    ))
 
 (defn reload []
   (reagent/render [page app-state]

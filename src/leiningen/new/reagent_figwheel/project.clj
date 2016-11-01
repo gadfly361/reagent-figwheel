@@ -1,6 +1,6 @@
 (defproject {{ns-name}} "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.8.51"]
+                 [org.clojure/clojurescript "1.9.229"]
                  [reagent "0.6.0"]{{#devtools?}}
                  [binaryage/devtools "0.8.2"]{{/devtools?}}{{#routes?}}
                  [secretary "1.2.3"]{{/routes?}}{{#garden?}}
@@ -8,14 +8,14 @@
                  [matchbox "0.0.10-SNAPSHOT"]{{/firebase?}}{{#keechma?}}
                  [keechma "0.1.0-SNAPSHOT" :exclusions [cljsjs/react-with-addons]]{{/keechma?}}{{#petrol?}}
                  [petrol "0.1.3"]{{/petrol?}}{{#devcards?}}
-                 [devcards "0.2.1-7" :exclusions [cljsjs/react]]{{/devcards?}}]
+                 [devcards "0.2.2" :exclusions [cljsjs/react]]{{/devcards?}}]
 
   :min-lein-version "2.5.3"
 
   :source-paths ["src/clj"]
 
   :plugins [[lein-cljsbuild "1.1.4"]{{#garden?}}
-            [lein-garden "0.2.6"]{{/garden?}}{{#less?}}
+            [lein-garden "0.2.8"]{{/garden?}}{{#less?}}
             [lein-less "1.7.5"]{{/less?}}]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled"
@@ -43,10 +43,10 @@
   :profiles
   {:dev
    {:dependencies [{{#cider?}}
-                   [figwheel-sidecar "0.5.7"]
+                   [figwheel-sidecar "0.5.8"]
                    [com.cemerick/piggieback "0.2.1"]{{/cider?}}]
 
-    :plugins      [[lein-figwheel "0.5.7"]{{#test?}}
+    :plugins      [[lein-figwheel "0.5.8"]{{#test?}}
                    [lein-doo "0.1.7"]{{/test?}}{{#cider?}}
                    [cider/cider-nrepl "0.13.0"]{{/cider?}}]
     }}
@@ -57,42 +57,46 @@
      :source-paths ["src/cljs"]
      :figwheel     {:on-jsload "{{name}}.core/reload"}
      :compiler     {:main                 {{name}}.core
+                    :optimizations        :none
                     :output-to            "resources/public/js/compiled/app.js"
-                    :output-dir           "resources/public/js/compiled/out"
-                    :asset-path           "js/compiled/out"
+                    :output-dir           "resources/public/js/compiled/dev"
+                    :asset-path           "js/compiled/dev"
                     :source-map-timestamp true}}
 
     {{#devcards?}}
     {:id           "devcards"
      :source-paths ["src/devcards" "src/cljs"]
-     :figwheel     {:devcards true }
+     :figwheel     {:devcards true}
      :compiler     {:main                 "{{name}}.core-card"
-                    :asset-path           "js/compiled/devcards_out"
+                    :optimizations        :none
                     :output-to            "resources/public/js/compiled/devcards.js"
-                    :output-dir           "resources/public/js/compiled/devcards_out"
-                    :source-map-timestamp true }}
+                    :output-dir           "resources/public/js/compiled/devcards"
+                    :asset-path           "js/compiled/devcards"
+                    :source-map-timestamp true}}
 
     {:id           "hostedcards"
      :source-paths ["src/devcards" "src/cljs"]
      :compiler     {:main          "{{name}}.core-card"
+                    :optimizations :advanced
                     :devcards      true
-                    :asset-path    "js/compiled/devcards_out"
                     :output-to     "resources/public/js/compiled/devcards.js"
-                    :optimizations :advanced}}
+                    :output-dir    "resources/public/js/compiled/hostedcards"}}
 
     {{/devcards?}}
     {:id           "min"
      :source-paths ["src/cljs"]
-     :compiler     {:main          {{name}}.core
-                    :output-to     "resources/public/js/compiled/app.js"
-                    :optimizations :advanced
+     :compiler     {:main            {{name}}.core
+                    :optimizations   :advanced
+                    :output-to       "resources/public/js/compiled/app.js"
+                    :output-dir      "resources/public/js/compiled/min"
                     :closure-defines {goog.DEBUG false}
-                    :pretty-print  false}}
+                    :pretty-print    false}}
     {{#test?}}
 
     {:id           "test"
      :source-paths ["src/cljs" "test/cljs"]
      :compiler     {:output-to     "resources/public/js/compiled/test.js"
+                    :output-dir    "resources/public/js/compiled/test"
                     :main          {{name}}.runner
                     :optimizations :none}}{{/test?}}
     ]})

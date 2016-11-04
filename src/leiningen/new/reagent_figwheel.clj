@@ -151,6 +151,6 @@
 (defn reagent-figwheel [name & options]
   (let [data (template-data name options)]
     (check-options options)
-    (main/info "\nGenerating reagent-figwheel project.\n")
+    (main/info "\nGenerating reagent-figwheel project.")
     (apply ->files data
            (app-files data options))))

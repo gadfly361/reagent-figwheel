@@ -1,4 +1,4 @@
-(ns {{ns-name}}.pages.home)
+(ns {{ns-name}}.pages.home.main)
 
 
 (defn page [ratom]

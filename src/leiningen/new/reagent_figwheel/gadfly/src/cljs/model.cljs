@@ -8,5 +8,5 @@
 
 (defonce app-state
   (reagent/atom
-   {:debug? debug?
-    :page   nil}))
+   {:app {:debug? debug?
+          :page   nil}}))

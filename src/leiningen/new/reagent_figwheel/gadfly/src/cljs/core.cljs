@@ -5,7 +5,8 @@
    [datafrisk.core :as d]
    [{{ns-name}}.model :as model]
    [{{ns-name}}.routes :as routes]
-   [{{ns-name}}.pages.bundle :as pages]))
+   [{{ns-name}}.pages.bundle :as pages]
+   [{{ns-name}}.shared.cursors :as cursors]))
 
 
 
@@ -13,16 +14,18 @@
 ;; Current Page
 
 (defn current-page[ratom]
-  (let [r        @ratom
-        page-key (:page r)
-        debug?   (:debug? r)]
-    [:div
+  (let [app-cursor (cursors/app ratom)]
+    (fn [ratom]
+      (let [r              @ratom
+            {:keys [debug?
+                    page]} @app-cursor]
+        [:div
 
-     (when debug?
-       [:div#data-frisk
-        [d/DataFriskShell r]])
+         (when debug?
+           [:div#data-frisk
+            [d/DataFriskShell r]])
 
-     [(pages/page page-key) ratom]]))
+         [(pages/page page) ratom]]))))
 
 
 

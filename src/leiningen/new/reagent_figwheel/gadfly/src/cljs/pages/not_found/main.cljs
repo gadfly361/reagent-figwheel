@@ -1,4 +1,4 @@
-(ns {{ns-name}}.pages.page-not-found)
+(ns {{ns-name}}.pages.not-found.main)
 
 
 (defn page [ratom]

@@ -1,7 +1,8 @@
 (ns {{ns-name}}.shared.actions-test
   (:require
    [cljs.test :refer-macros [deftest testing is]]
-   [{{ns-name}}.shared.actions :as target]))
+   [{{ns-name}}.shared.actions :as target]
+   [reagent.core :as reagent]))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -17,11 +18,12 @@
 
 (deftest set-page!
   (testing "should swap! :page with page-key"
-    (let [ratom (atom {})]
-      (is (nil? (:page @ratom))
+    (let [ratom (reagent/atom {})]
+      (is (nil? (get-in @ratom [:app :page]))
           "should be nil before run")
       (target/set-page! ratom :foo)
-      (is (= (:page @ratom) :foo)
+      (is (= (get-in @ratom [:app :page])
+             :foo)
           "should be set to page-key after run"))))
 
 

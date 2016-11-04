@@ -21,11 +21,8 @@
     (sa/set-page! ratom :home))
 
 
-  (defroute "/about" []
-    (sa/set-page! ratom :about))
-
   (defroute "/*" []
-    (sa/set-page! ratom :page-not-found))
+    (sa/set-page! ratom :not-found))
 
 
 

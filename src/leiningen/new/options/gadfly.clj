@@ -39,17 +39,17 @@
    ["src/cljs/{{sanitized}}/routes.cljs"
     (helpers/render "gadfly/src/cljs/routes.cljs" data)]
 
-   ["src/cljs/{{sanitized}}/pages/about.cljs"
-    (helpers/render "gadfly/src/cljs/pages/about.cljs" data)]
    ["src/cljs/{{sanitized}}/pages/bundle.cljs"
     (helpers/render "gadfly/src/cljs/pages/bundle.cljs" data)]
-   ["src/cljs/{{sanitized}}/pages/home.cljs"
-    (helpers/render "gadfly/src/cljs/pages/home.cljs" data)]
-   ["src/cljs/{{sanitized}}/pages/page_not_found.cljs"
-    (helpers/render "gadfly/src/cljs/pages/page_not_found.cljs" data)]
+   ["src/cljs/{{sanitized}}/pages/home/main.cljs"
+    (helpers/render "gadfly/src/cljs/pages/home/main.cljs" data)]
+   ["src/cljs/{{sanitized}}/pages/not_found/main.cljs"
+    (helpers/render "gadfly/src/cljs/pages/not_found/main.cljs" data)]
 
    ["src/cljs/{{sanitized}}/shared/actions.cljs"
     (helpers/render "gadfly/src/cljs/shared/actions.cljs" data)]
+   ["src/cljs/{{sanitized}}/shared/cursors.cljs"
+    (helpers/render "gadfly/src/cljs/shared/cursors.cljs" data)]
 
 
    ;; devcards

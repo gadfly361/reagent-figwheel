@@ -8,7 +8,8 @@
                  [matchbox "0.0.10-SNAPSHOT"]{{/firebase?}}{{#keechma?}}
                  [keechma "0.1.0-SNAPSHOT" :exclusions [cljsjs/react-with-addons]]{{/keechma?}}{{#petrol?}}
                  [petrol "0.1.3"]{{/petrol?}}{{#devcards?}}
-                 [devcards "0.2.2" :exclusions [cljsjs/react]]{{/devcards?}}]
+                 [devcards "0.2.2" :exclusions [cljsjs/react]]{{/devcards?}}{{#re-frisk?}}
+                 [re-frisk "0.3.1"]{{/re-frisk?}}]
 
   :min-lein-version "2.5.3"
 

@@ -71,6 +71,7 @@
    :keechma?  (helpers/invoke-option keechma/option options)
    :less?     (helpers/invoke-option less/option options)
    :petrol?   (helpers/invoke-option petrol/option options)
+   :re-frisk? (helpers/invoke-option "re-frisk" options)
    :routes?   (helpers/invoke-option routes/option options)
    :test?     (helpers/invoke-option test/option options)})
 

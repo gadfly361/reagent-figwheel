@@ -26,6 +26,7 @@ The optional profiles include:
 	* [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
 	* [devcards](https://github.com/bhauman/devcards) (`+devcards`)
 	* [cljs-devtools](https://github.com/binaryage/cljs-devtools) (`+devtools`)
+	* [re-frisk](https://github.com/flexsurfer/re-frisk) (`+re-frisk`)
 * Editor
 	* [cider](https://github.com/clojure-emacs/cider) (`+cider`)
 * Frameworks (Pick up to one)
@@ -47,7 +48,7 @@ lein new reagent-figwheel <project-name> +routes
 Most combinations of profiles can be added at once, for example:
 
 ```
-lein new reagent-figwheel <project-name> +cider +test +garden +less +routes +petrol
+lein new reagent-figwheel <project-name> +cider +test +garden +less +routes +petrol +re-frisk
 ```
 
 However, there are the following **restrictions**:

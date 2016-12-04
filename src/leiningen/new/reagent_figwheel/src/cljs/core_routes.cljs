@@ -5,7 +5,8 @@
    [secretary.core :as secretary]
    [goog.events :as events]
    [goog.history.EventType :as EventType]
-   [reagent.core :as reagent]{{#devtools?}}
+   [reagent.core :as reagent]{{#re-frisk?}}
+   [re-frisk.core :as rf]{{/re-frisk?}}{{#devtools?}}
    [devtools.core :as devtools]{{/devtools?}}
    ))
 
@@ -79,7 +80,9 @@
 
 (defn dev-setup []
   (when debug?
-    (enable-console-print!)
+    (enable-console-print!){{#re-frisk?}}
+    (rf/enable-frisk!)
+    (rf/add-data :app-state app-state){{/re-frisk?}}
     (println "dev mode"){{#devtools?}}
     (devtools/install!){{/devtools?}}
     ))

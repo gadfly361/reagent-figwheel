@@ -2,7 +2,8 @@
   (:require
    [reagent.core :as reagent]
    [matchbox.core :as m]
-   [matchbox.reagent :as r]{{#devtools?}}
+   [matchbox.reagent :as r]{{#re-frisk?}}
+   [re-frisk.core :as rf]{{/re-frisk?}}{{#devtools?}}
    [devtools.core :as devtools]{{/devtools?}}
    ))
 
@@ -46,7 +47,9 @@
 
 (defn dev-setup []
   (when debug?
-    (enable-console-print!)
+    (enable-console-print!){{#re-frisk?}}
+    (rf/enable-frisk!)
+    (rf/add-data :app-state app-state){{/re-frisk?}}
     (println "dev mode"){{#devtools?}}
     (devtools/install!){{/devtools?}}
     ))

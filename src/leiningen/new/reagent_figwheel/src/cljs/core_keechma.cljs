@@ -5,7 +5,8 @@
    [reagent.core :as reagent]
    [keechma.ui-component :as ui]
    [keechma.controller :as controller]
-   [keechma.app-state :as app-state]{{#devtools?}}
+   [keechma.app-state :as app-state]{{#re-frisk?}}
+   [re-frisk.core :as rf]{{/re-frisk?}}{{#devtools?}}
    [devtools.core :as devtools]{{/devtools?}}
    ))
 
@@ -81,7 +82,9 @@
 
 (defn dev-setup []
   (when debug?
-    (enable-console-print!)
+    (enable-console-print!){{#re-frisk?}}
+    (rf/enable-frisk!)
+    (rf/add-data :counter-sub (ui/subscription app-db :counter-value)){{/re-frisk?}}
     (println "dev mode"){{#devtools?}}
     (devtools/install!){{/devtools?}}
     ))

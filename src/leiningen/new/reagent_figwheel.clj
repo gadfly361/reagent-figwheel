@@ -71,7 +71,7 @@
    :keechma?  (helpers/invoke-option keechma/option options)
    :less?     (helpers/invoke-option less/option options)
    :petrol?   (helpers/invoke-option petrol/option options)
-   :re-frisk? (helpers/invoke-option "re-frisk" options)
+   :re-frisk? (helpers/invoke-option "+re-frisk" options)
    :routes?   (helpers/invoke-option routes/option options)
    :test?     (helpers/invoke-option test/option options)})
 
@@ -90,6 +90,7 @@
     keechma/option
     less/option
     petrol/option
+    "+re-frisk"
     routes/option
     test/option})
 
@@ -126,6 +127,15 @@
       (main/abort "\nError: +petrol cannot be used with +keechma\n"))))
 
 
+(defn check-re-frisk [options]
+  (let [options-set (into #{} options)
+        abort?      (set/subset? #{keechma/option
+                                   "+re-frisk"}
+                                 options-set)]
+    (when abort?
+      (main/abort "\nError: +re-frisk cannot be used with +keechma\n"))))
+
+
 (defn check-routes [options]
   (let [options-set (into #{} options)
         abort?      (set/subset? #{keechma/option
@@ -142,6 +152,7 @@
     check-available
     check-firebase
     check-frameworks
+    check-re-frisk
     check-routes))
 
 

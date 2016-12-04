@@ -54,6 +54,7 @@ lein new reagent-figwheel <project-name> +cider +test +garden +less +routes +pet
 However, there are the following **restrictions**:
 
 * Can only select up to one *"framework"* (`+keechma` or `+petrol`)
+* `+re-frisk` cannot be used with `+keechma`
 * `+routes` cannot be used with `+keechma`
 * `+firebase` cannot be used with a framework (`+keechma` or `+petrol`)
 

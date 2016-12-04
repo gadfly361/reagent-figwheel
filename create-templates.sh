@@ -128,7 +128,7 @@ cd ../../..
 
 # Everything sans framework
 printf "\neverything sans framework\n"
-lein new reagent-figwheel everything-sans-framework +cider +routes +test +garden +less +devcards +firebase +devtools
+lein new reagent-figwheel everything-sans-framework +cider +routes +test +garden +less +devcards +firebase +devtools +re-frisk
 cd everything-sans-framework
 lein garden once
 lein less once
@@ -142,7 +142,7 @@ cd ../../..
 
 # Everything +petrol
 printf "\neverything +petrol\n"
-lein new reagent-figwheel everything-petrol +cider +routes +test +garden +less +devcards +devtools +petrol
+lein new reagent-figwheel everything-petrol +cider +routes +test +garden +less +devcards +devtools +petrol +re-frisk
 cd everything-petrol
 lein garden once
 lein less once
@@ -156,7 +156,7 @@ cd ../../..
 
 # Everything +keechma
 printf "\neverything +keechma\n"
-lein new reagent-figwheel everything-keechma +cider +test +garden +less +devcards +devtools +keechma
+lein new reagent-figwheel everything-keechma +cider +test +garden +less +devcards +devtools +keechma +re-frisk
 cd everything-keechma
 lein garden once
 lein less once

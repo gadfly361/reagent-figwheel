@@ -14,4 +14,4 @@
 
 (defn set-hash! [url]
   (set! (.-hash (.-location js/window))
-        (str "#/" url)))
+        (str "#" url)))

@@ -5,9 +5,10 @@
    [secretary.core :as secretary]
    [goog.events :as events]
    [goog.history.EventType :as EventType]
-   [{{ns-name}}.model :as model]
-   [{{ns-name}}.shared.actions :as sa]))
 
+   [{{ns-name}}.pages.home.route :as home]
+   [{{ns-name}}.pages.not-found.route :as not-found]
+   ))
 
 
 (declare hook-browser-navigation!)
@@ -17,15 +18,10 @@
   ;; ---------------------------
   ;; define routes here
 
-  (defroute "/" []
-    (sa/set-page! ratom :home))
+  (home/route ratom)
 
 
-  (defroute "/*" []
-    (sa/set-page! ratom :not-found))
-
-
-
+  (not-found/route ratom)
   ;;---------------------------
   (hook-browser-navigation!))
 

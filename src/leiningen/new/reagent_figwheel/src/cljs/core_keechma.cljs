@@ -80,7 +80,7 @@
   (reset! running-app (app-state/start! app-definition)))
 
 (defn dev-setup []
-  (when debug?
+  (when ^boolean js/goog.DEBUG
     (enable-console-print!)
     (println "dev mode"){{#devtools?}}
     (devtools/install!){{/devtools?}}

@@ -46,7 +46,7 @@
 ;; Initialize App
 
 (defn dev-setup []
-  (when debug?
+  (when ^boolean js/goog.DEBUG
     (enable-console-print!){{#re-frisk?}}
     (rf/enable-frisk!)
     (rf/add-data :app-state app-state){{/re-frisk?}}

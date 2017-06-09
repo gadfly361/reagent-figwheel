@@ -5,17 +5,8 @@
    [reagent.core :as reagent]
    [keechma.ui-component :as ui]
    [keechma.controller :as controller]
-   [keechma.app-state :as app-state]{{#devtools?}}
-   [devtools.core :as devtools]{{/devtools?}}
+   [keechma.app-state :as app-state]
    ))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Vars
-
-(defonce debug?
-  ^boolean js/goog.DEBUG)
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -82,9 +73,7 @@
 (defn dev-setup []
   (when ^boolean js/goog.DEBUG
     (enable-console-print!)
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
-    ))
+    (println "dev mode")))
 
 (defn reload []
   (let [current @running-app]

@@ -6,21 +6,15 @@
    [goog.events :as events]
    [goog.history.EventType :as EventType]
    [reagent.core :as reagent]{{#re-frisk?}}
-   [re-frisk.core :as rf]{{/re-frisk?}}{{#devtools?}}
-   [devtools.core :as devtools]{{/devtools?}}
+   [re-frisk.core :as rf]{{/re-frisk?}}
    ))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Vars
 
-(defonce debug?
-  ^boolean js/goog.DEBUG)
-
 (defonce app-state
-  (reagent/atom
-   {:text "Hello, what is your name? "
-    :page :nil}))
+  (reagent/atom {}))
 
 
 
@@ -55,10 +49,8 @@
 ;; Pages
 
 (defn home [ratom]
-  (let [text (:text @ratom)]
-    [:div [:h1 "Home Page"]
-     [:p text "FIXME"]
-     [:a {:href "#/about"} "about page"]]))
+  [:div [:h1 "Home Page"]
+   [:a {:href "#/about"} "about page"]])
 
 (defn about [ratom]
   [:div [:h1 "About Page"]
@@ -80,11 +72,10 @@
 
 (defn dev-setup []
   (when ^boolean js/goog.DEBUG
-    (enable-console-print!){{#re-frisk?}}
+    (enable-console-print!)
+    (println "dev mode"){{#re-frisk?}}
     (rf/enable-frisk!)
     (rf/add-data :app-state app-state){{/re-frisk?}}
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
     ))
 
 (defn reload []

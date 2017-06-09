@@ -156,7 +156,7 @@ cd ../../..
 
 # Everything +keechma
 printf "\neverything +keechma\n"
-lein new reagent-figwheel everything-keechma +cider +test +garden +less +devcards +devtools +keechma +re-frisk
+lein new reagent-figwheel everything-keechma +cider +test +garden +less +devcards +devtools +keechma
 cd everything-keechma
 lein garden once
 lein less once

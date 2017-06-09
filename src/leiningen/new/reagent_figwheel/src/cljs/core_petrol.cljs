@@ -2,17 +2,8 @@
   (:require
    [reagent.core :as reagent]
    [petrol.core :as petrol]{{#re-frisk?}}
-   [re-frisk.core :as rf]{{/re-frisk?}}{{#devtools?}}
-   [devtools.core :as devtools]{{/devtools?}}
+   [re-frisk.core :as rf]{{/re-frisk?}}
    ))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Vars
-
-(defonce debug?
-  ^boolean js/goog.DEBUG)
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -59,11 +50,10 @@
 
 (defn dev-setup []
   (when ^boolean js/goog.DEBUG
-    (enable-console-print!){{#re-frisk?}}
+    (enable-console-print!)
+    (println "dev mode"){{#re-frisk?}}
     (rf/enable-frisk!)
     (rf/add-data :app-state app-state){{/re-frisk?}}
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
     ))
 
 (defn reload []

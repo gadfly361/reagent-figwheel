@@ -1,20 +1,15 @@
 (ns {{ns-name}}.core
   (:require
    [reagent.core :as reagent]{{#re-frisk?}}
-   [re-frisk.core :as rf]{{/re-frisk?}}{{#devtools?}}
-   [devtools.core :as devtools]{{/devtools?}}
+   [re-frisk.core :as rf]{{/re-frisk?}}
    ))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Vars
 
-(defonce debug?
-  ^boolean js/goog.DEBUG)
-
 (defonce app-state
-  (reagent/atom
-   {:text "Hello, what is your name? "}))
+  (reagent/atom {}))
 
 
 
@@ -22,7 +17,8 @@
 ;; Page
 
 (defn page [ratom]
-  [:p (:text @ratom) "FIXME"])
+  [:div
+   "Welcome to reagent-figwheel."])
 
 
 
@@ -31,11 +27,10 @@
 
 (defn dev-setup []
   (when ^boolean js/goog.DEBUG
-    (enable-console-print!){{#re-frisk?}}
+    (enable-console-print!)
+    (println "dev mode"){{#re-frisk?}}
     (rf/enable-frisk!)
     (rf/add-data :app-state app-state){{/re-frisk?}}
-    (println "dev mode"){{#devtools?}}
-    (devtools/install!){{/devtools?}}
     ))
 
 (defn reload []

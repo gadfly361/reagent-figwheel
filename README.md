@@ -156,6 +156,7 @@ lein cljsbuild once min
 
 ## Other Templates
 
+* [chestnut](https://github.com/plexus/chestnut)
 * [luminus](https://github.com/luminus-framework/luminus-template)
 * [pedestal](https://github.com/pedestal/pedestal)
 * [re-frame-template](https://github.com/Day8/re-frame-template)

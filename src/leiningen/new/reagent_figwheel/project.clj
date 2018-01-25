@@ -1,7 +1,7 @@
 (defproject {{ns-name}} "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.229"]
-                 [reagent "0.6.1"]{{#routes?}}
+  :dependencies [[org.clojure/clojure "1.9.0"]
+                 [org.clojure/clojurescript "1.9.946"]
+                 [reagent "0.7.0"]{{#routes?}}
                  [secretary "1.2.3"]{{/routes?}}{{#garden?}}
                  [garden "1.3.2"]{{/garden?}}{{#firebase?}}
                  [matchbox "0.0.10-SNAPSHOT"]{{/firebase?}}{{#keechma?}}

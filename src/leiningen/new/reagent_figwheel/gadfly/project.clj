@@ -9,7 +9,7 @@
                  [secretary "1.2.3"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
-            [lein-garden "0.2.6"]]
+            [lein-garden "0.3.0"]]
 
   :clean-targets ^{:protect false} ["resources/public/js"
                                     "resources/public/css"

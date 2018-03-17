@@ -29,12 +29,6 @@ The optional profiles include:
 	* [re-frisk](https://github.com/flexsurfer/re-frisk) (`+re-frisk`)
 * Editor
 	* [cider](https://github.com/clojure-emacs/cider) (`+cider`)
-* Frameworks (Pick up to one)
-	* [keechma](https://github.com/keechma/keechma) (`+keechma`)
-	* [petrol](https://github.com/krisajenkins/petrol) (`+petrol`)
-* Persistence
-	* [matchbox](https://github.com/crisptrutski/matchbox) (`+firebase`)
-        * Note: this uses version 2.4.1-0 of firebase
 * Routing
 	* [secretary](https://github.com/gf3/secretary) (`+routes`)
 
@@ -45,18 +39,11 @@ To add a profile to the base template, just append the profile name (let's use `
 lein new reagent-figwheel <project-name> +routes
 ```
 
-Most combinations of profiles can be added at once, for example:
+Any combinations of profiles can be added at once, for example:
 
 ```
-lein new reagent-figwheel <project-name> +cider +test +garden +less +routes +petrol +re-frisk
+lein new reagent-figwheel <project-name> +cider +test +garden +less +routes +re-frisk
 ```
-
-However, there are the following **restrictions**:
-
-* Can only select up to one *"framework"* (`+keechma` or `+petrol`)
-* `+re-frisk` cannot be used with `+keechma`
-* `+routes` cannot be used with `+keechma`
-* `+firebase` cannot be used with a framework (`+keechma` or `+petrol`)
 
 ## Development Mode
 
@@ -156,14 +143,13 @@ lein cljsbuild once min
 
 ## Other Templates
 
+* [re-frame-template](https://github.com/Day8/re-frame-template)
 * [chestnut](https://github.com/plexus/chestnut)
 * [luminus](https://github.com/luminus-framework/luminus-template)
 * [pedestal](https://github.com/pedestal/pedestal)
-* [re-frame-template](https://github.com/Day8/re-frame-template)
 * [reagent-seed](https://github.com/gadfly361/reagent-seed)
 * [thi.ng babel](https://github.com/thi-ng/babel)
 * [vase](https://github.com/cognitect-labs/vase)
-
 
 There is also a public [comparison chart](https://goo.gl/ZZH8fm) of the common templates.
 

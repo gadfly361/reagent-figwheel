@@ -2,4 +2,7 @@
 
 
 (def style
-  [:* {:font-family "Roboto, sans-serif"}])
+  [
+   [:* {:font-family "Roboto, sans-serif"
+        :font-weight 300}]
+   ])

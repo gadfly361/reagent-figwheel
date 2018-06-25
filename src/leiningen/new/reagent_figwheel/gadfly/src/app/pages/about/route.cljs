@@ -1,4 +1,4 @@
-(ns {{ns-name}}.pages.not-found.route
+(ns {{ns-name}}.pages.about.route
   (:require
    [{{ns-name}}.models.app.navigation.actions :as nav-actions]))
 

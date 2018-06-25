@@ -1,4 +1,4 @@
-(ns {{ns-name}}.init)
+(ns {{ns-name}}.env-init)
 
 
 (defn main [ratom]

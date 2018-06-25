@@ -32,7 +32,7 @@ Note: figwheel often does a clean when it first starts ... so it is best to crea
 ### Run application:
 
 ```
-lein with-profile local figwheel dev
+lein figwheel dev
 ```
 
 Figwheel will automatically push cljs changes to the browser.
@@ -42,15 +42,36 @@ Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
 ### Run tests:
 
 ```
-lein with-profile local doo phantom test once
+lein test
 ```
-
-The above command assumes that you have [phantomjs](https://www.npmjs.com/package/phantomjs) installed. However, please note that [doo](https://github.com/bensu/doo) can be configured to run cljs.test in many other JS environments (chrome, ie, safari, opera, slimer, node, rhino, or nashorn). 
 
 ## Production Build
 
 ```
 lein clean
+rm -rf resources/public/css
 lein garden once
 lein cljsbuild once min
 ```
+
+## Devcards
+
+```
+lein figwheel devcards
+```
+
+Figwheel will automatically push cljs changes to the browser.
+
+Wait a bit, then browse to [http://localhost:3449/cards.html](http://localhost:3449/cards.html).
+
+---
+
+To build a minified version:
+
+```
+lein clean
+rm -rf resources/public/css
+lein garden once
+lein cljsbuild once hostedcards
+```
+Then open *resources/public/cards.html*

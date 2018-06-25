@@ -1,6 +1,7 @@
-(ns {{ns-name}}.init
+(ns {{ns-name}}.env-init
   (:require
-   [cljs.spec :as spec]
+   [cljs.spec.alpha :as spec]
+   [expound.alpha :as expound]
    [re-frisk.core :as rf]))
 
 
@@ -19,5 +20,6 @@
 
 (defn main [ratom]
   (spec/check-asserts true)
+  (set! spec/*explain-out* expound/printer)
   (enable-print)
   (enable-re-frisk ratom))

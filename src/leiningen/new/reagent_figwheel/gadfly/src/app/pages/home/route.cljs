@@ -1,10 +1,10 @@
 (ns {{ns-name}}.pages.home.route
-  (:require-macros [secretary.core :refer [defroute]])
   (:require
-   [secretary.core :as secretary]
-   [{{ns-name}}.shared.actions :as actions]))
+   [{{ns-name}}.models.app.navigation.actions :as nav-actions]))
 
 
-(defn route [ratom]
-  (defroute "/" []
-    (actions/set-page! ratom :home)))
+(defn main
+  [app-state {:keys [page-key
+                     params
+                     query]}]
+  (nav-actions/set-page! app-state page-key))
